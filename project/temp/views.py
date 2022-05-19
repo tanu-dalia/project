@@ -1,9 +1,10 @@
 from django.shortcuts import render
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import authenticate,login,logout
 from django.db import IntegrityError
 from django.shortcuts import render
 from django.urls import reverse
 from django.http import HttpResponse, HttpResponseRedirect
+from . models import user, user_profile
 
 # Create your views here.
 def index(request):
@@ -26,5 +27,41 @@ def log_in(request):
         })
     else:
         return render(request, "temp/login.html")
-    
+
+
+
+def register(request):
+    if request.method == "POST":
+        username = request.POST["username"]
+        email = request.POST["email"]
+        qualification = request.POST['qualification']
+        work = request.POST['work']
+        resume = request.FILES['resume']
+
+        # Ensure password matches confirmation
+        password = request.POST["password"]
+        confirmation = request.POST["passwords"]
+        if password != password:
+            return render(request, "temp/register.html", {
+                "message": "Passwords must match."
+            })
+
+        # Attempt to create new user
+        try:
+            users = user.objects.create_user(username, email, password)
+            users.save()
+            user_pro = user_profile(user_id = users, resume = resume, work_experience = work, qualification = qualification)
+            user_pro.save()
+        except IntegrityError:
+            return render(request, "temp/register.html", {
+                "message": "Username already taken."
+            })
+        return render(request, 'temp/register.html', {"message": 'Registered successfully.'})
+    else:
+        return render(request, "temp/registers.html") 
+
+
+def logout(request):
+    logout(request)
+    return HttpResponseRedirect(reverse('index'))      
      

@@ -8,6 +8,14 @@ from django.db import models
 # Create your models here.
 class user(AbstractUser):
     pass
+
+class user_profile(models.Model):
+    user_id = models.OneToOneField(user, on_delete=models.CASCADE)
+    resume = models.FileField(upload_to="files/")
+    work_experience = models.CharField(max_length=200, default='')
+    qualification = models.CharField(max_length=200, default='')
+
+
 class company(models.Model):
     comapany_name=models.CharField(max_length=100)
     location=models.CharField(max_length=200)
