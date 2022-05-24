@@ -1,40 +1,40 @@
 <form action="{% url 'register' %}" method="post" enctype="multipart/form-data">
     {% csrf_token %}
 
-    <input type="text" name="username" placeholder="user Name" required="">
+    <input type="text" name="username" placeholder="User Name" required="">
     <input type="email" name="email" placeholder="Email" required="">
     <input type="password" name="password" id="password1" placeholder="Password" required="">
     <input type="password" name="passwords" id="password2" placeholder="Confirm Password" required="">
     <select id="country13" name="work" class="frm-field required" required>
                                 <option value="null">Work Experience</option>
                                  <option value="fresher">Fresher</option>
-                                <option value="">0</option>
-                                <option value="">1</option>
-                                <option value="">2</option>
-                                <option value="">3</option> 
-                                <option value="">4</option> 
-                                <option value="">5</option> 
-                                <option value="">6</option> 
-                                <option value="">7</option> 
-                                <option value="">8</option> 
-                                <option value="">9</option> 
-                                <option value="">10</option> 
-                                <option value="">11</option>
-                                <option value="">12</option>  
-                                <option value="">13</option>
-                                <option value="">14</option>
-                                <option value="">15</option>      
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option> 
+                                <option value="4">4</option> 
+                                <option value="5">5</option> 
+                                <option value="6">6</option> 
+                                <option value="7">7</option> 
+                                <option value="8">8</option> 
+                                <option value="9">9</option> 
+                                <option value="10">10</option> 
+                                <option value="11">11</option>
+                                <option value="12">12</option>  
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>      
                 </select>
     <select id="country13" name="qualification" class="frm-field required" required>
                                 <option value="null">Qualification</option>
                        <option value="BSc.">Bsc</option>
-                        <option value="">BTech</option>
-                        <option value="">BCA</option>
-                        <option value="">MCA</option>
-                        <option value="">MBA</option> 
-                        <option value="">Mtech</option> 
-                        <option value="">Diploma</option> 
-                        <option value="">Other</option> 
+                        <option value="BTech">BTech</option>
+                        <option value="Bca">BCA</option>
+                        <option value="MCA">MCA</option>
+                        <option value="MBA">MBA</option> 
+                        <option value="Mtech">Mtech</option> 
+                        <option value="Diploma">Diploma</option> 
+                        <option value="other">Other</option> 
 </select>
 <input type="file" name="resume" class="" required>
     <input type="submit" value="Register">

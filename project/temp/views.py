@@ -1,25 +1,26 @@
+from email import message
 from django.shortcuts import render
 from django.contrib.auth import authenticate,login,logout
 from django.db import IntegrityError
 from django.shortcuts import render
 from django.urls import reverse
 from django.http import HttpResponse, HttpResponseRedirect
-from . models import user, user_profile
+from . models import user, user_profile, company, job_applied, job_posting
 
 # Create your views here.
 def index(request):
-    return render(request,"temp/layout.html")
+    return render(request,"temp/admin_layout.html")
 
 def log_in(request):
     if request.method == "POST":
         # Attempt to sign user in
-        Email = request.POST["email"]
+        name = request.POST["username"]
         password = request.POST["password"]
-        user = authenticate(request, Email=Email,
+        user = authenticate(request, username=name,
         password=password)
         # Check if authentication successful
         if user is not None:
-            log_in(request, user)
+            login(request, user)
             return HttpResponseRedirect(reverse("index"))
         else:
             return render(request, "temp/login.html", {
@@ -65,3 +66,53 @@ def logout(request):
     logout(request)
     return HttpResponseRedirect(reverse('index'))      
      
+
+def all_companies(request):
+    companies = company.objects.all()
+    print(companies)
+    return render(request, "temp/all_company.html", {"companies": companies})
+    # return render(request, 'temp/layout.html')
+
+
+def add_company(request):
+    if request.method == 'POST':
+        comapany_name = request.POST['cname'] 
+        location = request.POST['loc']
+        working_employes = request.POST['number_of_employes']
+        Specialization = request.POST['specilization']
+        try:
+           a = company(comapany_name = comapany_name,location=location,working_employes=working_employes,Specialization=Specialization)
+           a.save()
+        except:
+            return render(request,'temp/add_company.html',{'message':'try again'})
+        return HttpResponseRedirect(reverse('all_company'))    
+    else:
+       return render(request,'temp/add_company.html')
+
+def edit_company(request,id):
+    com = company.objects.get(id=id)
+    if request.method == 'POST':
+        comapany_name = request.POST['cname'] 
+        location = request.POST['loc']
+        working_employes = request.POST['number_of_employes']
+        Specialization = request.POST['specilization']
+        try:
+           com.comapany_name = comapany_name
+           com.location = location
+           com.working_employes = working_employes
+           com.Specialization = Specialization
+           com.save()
+        except:
+            return render(request,'temp/edit_company.html',{'com': com,'message':'try again'})
+        return HttpResponseRedirect(reverse('all_company'))    
+    else:
+       return render(request,'temp/edit_company.html', {'com': com})
+
+
+def delete_company(request,id):
+       a = company.objects.get(id=id)
+       try:
+           a.delete()
+       except:
+           return render(request,"temp/all_company.html", {'messge': 'try again'})
+       return HttpResponseRedirect(reverse('all_company'))
