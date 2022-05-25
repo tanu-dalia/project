@@ -17,7 +17,8 @@ def log_in(request):
         name = request.POST["username"]
         password = request.POST["password"]
         user = authenticate(request, username=name,
-        password=password)
+        password=password, is_superuser = 1)
+        print(user)
         # Check if authentication successful
         if user is not None:
             login(request, user)
@@ -62,7 +63,7 @@ def register(request):
         return render(request, "temp/registers.html") 
 
 
-def logout(request):
+def logout_view(request):
     logout(request)
     return HttpResponseRedirect(reverse('index'))      
      
@@ -116,3 +117,48 @@ def delete_company(request,id):
        except:
            return render(request,"temp/all_company.html", {'messge': 'try again'})
        return HttpResponseRedirect(reverse('all_company'))
+
+
+def all_user(request):
+    stu = user_profile.objects.all()
+    print(stu)
+    return render(request, "temp/all_user.html", {"user": stu})
+    # return render(request, 'temp/layout.html')
+
+def add_user(request):
+    if request.method == 'POST':
+        user_id = request.POST['uname'] 
+        Email = request.POST['email']
+        resume= request.FILES['resume']
+        work_experience = request.POST['work_experience']
+        qualification= request.POST['qualification']
+        try:
+           a = company(_user_id = user_id,Email=Email,resume=resume,work_experience=work_experience,qualification=qualification)
+           a.save()
+        except:
+            return render(request,'temp/add_user.html',{'message':'try again'})
+        return HttpResponseRedirect(reverse('all_user'))    
+    else:
+       return render(request,'temp/add_user.html')    
+
+def all_jobs(request):
+    com = company.objects.all()
+    print(com)
+    return render(request, "temp/all_company.html", {"company": com})
+    # return render(request, 'temp/layout.html')       
+
+def add_job(request):
+    if request.method == 'POST':
+        comapany_id = request.POST['company'] 
+        job_title= request.POST['title']
+        salary_expected = request.POST['salary']
+        timing = request.POST['timimg']
+        type = request.POST['type']
+        try:
+           a = company(comapany_id = comapany_id,job_title=job_title,salary_expected=salary_expected,timing=timing, type= type)
+           a.save()
+        except:
+            return render(request,'temp/add_job.html',{'message':'try again'})
+        return HttpResponseRedirect(reverse('all_company'))    
+    else:
+       return render(request,'temp/add_job.html')

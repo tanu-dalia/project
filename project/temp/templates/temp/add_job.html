@@ -1,0 +1,27 @@
+{% extends 'temp/admin_layout.html' %}
+
+{% block body %}
+
+ <form method='post' action='{% url "add_job" %}'>
+   {%csrf_token%}
+   <select id="country13" name="company" class="frm-field required" required>
+    <option value="null">company</option>
+<option value="BSc.">wipro </option>
+<option value="">IBM</option>
+<option value="">ABC</option>
+<option value="">cloud sufi</option>
+<option value="">tcs</option> 
+</select>
+  <label for="lname">Job title</label><br>
+  <input type="text" id="title" name="title" value="" placeholder="title" required=""><br><br>
+  <label for="fname">salary_expected</label><br>
+  <input type="text" id="salary" name="salary" value="" placeholder="salary_expected" required=""><br>
+  <label for="fname">timings</label><br>
+  <input type="text" id="timings" name="timings" value="" placeholder="timings" required=""><br>
+  <label for="fname">type</label><br>
+  <input type="text" id="type" name="type" value="" placeholder="type" required=""><br>
+  <input type="submit" value="Submit">
+  
+</form> 
+
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'temp/admin_layout.html' %}
+
+{% block body %}
+
+<div class="container p-4 text-center">
+
+    <h2>Users List</h2><a href = "{% url 'add_user' %}" type="button" align="right" class="btn btn-primary">Add Users</a>
+    <table class="table mt-3">
+        <tr>
+            <th>Id</th>
+            <th>user name</th> 
+            <th>Email</th>
+            <th>resume</th>
+            <th>work_experience</th>
+            <th>qualification</th>
+            <th>Actions</th>
+        </tr>
+        {% for i in user %}
+            <tr>
+                <td>{{i.id}}</td>
+                <td>{{i.user_id.username}}</td>
+                <td>{{i.user_id.email}}</td>
+                <td><a href="{{i.resume.url}}" target="_blank">Resume Link</a></td>
+                <td>{{i.work_experience}}</td>
+                <td>{{i.qualification}}</td>
+                <td>
+                    <a href ="{% url 'delete_company' i.id %}" class= 'btn btn-primary'>Delete</a>
+                </td>
+
+            </tr>
+        {% endfor %}
+ 
+     </table>
+</div>
+
+ 
+<!-- </div> -->
+{% endblock %}

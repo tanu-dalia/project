@@ -1,0 +1,23 @@
+{% extends 'temp/admin_layout.html' %}
+
+{% block body %}
+
+ <form method='post' action='{% url "add_user" %}'>
+   {%csrf_token%}
+  <label for="fname">user name</label><br>
+  <input type="text" id="uname" name="uname" value="" placeholder="UserName" required=""><br>
+  <label for="fname">Email</label><br>
+  <input type="text" id="email" name="email" value="" placeholder="Email" required=""><br>
+  <label for="lname">Resume</label><br>
+  <input type="file" name="resume" value="" required=""><br>
+  <label for="fname">work_experience </label><br>
+  <input type="number" id="work_experience" name="work_experience" value="" placeholder="Experience" required=""><br>
+  <label for="fname">qualification</label><br>
+  <input type="text" id="qualification" name="qualification" value="" placeholder="qualification" required=""><br>
+
+  <input type="submit" value="Submit">
+</form> 
+
+
+
+{% endblock %}
