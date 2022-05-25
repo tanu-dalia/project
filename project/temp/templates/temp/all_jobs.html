@@ -1,38 +1,32 @@
 {% extends 'temp/admin_layout.html' %}
-
 {% block body %}
-
 <div class="container p-4 text-center">
-
-    <h2>Company List</h2><a href = "{% url 'add_company' %}" type="button" align="right" class="btn btn-primary">Add Company</a>
-    <table class="table mt-3">
-        <tr>
-            <th>Id</th>
-            <th>company</th> 
-            <th>Location</th>
-            <th>working employes</th>
-            <th>specilization</th>
-            <th>Actions</th>
-        </tr>
-        {% for i in Company %}
-            <tr>
-                <td>{{i.id}}</td>
-                <td>{{i.comapany_name}}</td>
-                <td>{{i.location}}</td>
-                <td>{{i.working_employes}}</td>
-                <td>{{i.Specialization}}</td>
-                <td>
-                    <a href ="{% url 'edit_company' i.id %}" class= 'btn btn-primary'>Edit</a>
-                    <a href ="{% url 'delete_company' i.id %}" class= 'btn btn-primary'>Delete</a>
-                </td>
-            
-
-            </tr>
-        {% endfor %}
- 
-     </table>
+   <h2>Job List</h2>
+   <a href = "{% url 'add_job' %}" type="button" align="right" class="btn btn-primary">Add Job</a>
+   <table class="table mt-3">
+      <tr>
+         <th>Id</th>
+         <th>Job Title</th>
+         <th>Salary</th>
+         <th>Job Timing</th>
+         <th>Job Type</th>
+         <th>Company Name</th>
+      </tr>
+      {% for i in jp %}
+      <tr>
+         <td>{{i.id}}</td>
+         <td>{{i.job_title}}</td>
+         <td>{{i.salary_expected}}</td>
+         <td>{{i.timing}}</td>
+         <td>{{i.type}}</td>
+         <td>{{i.company_id.comapany_name}}</td>
+         <td>
+            <a href ="{% url 'edit_job' i.id %}" class= 'btn btn-primary'>Edit</a>
+            <a href ="{% url 'delete_job' i.id %}" class= 'btn btn-primary'>Delete</a>
+         </td>
+      </tr>
+      {% endfor %}
+   </table>
 </div>
-
- 
 <!-- </div> -->
 {% endblock %}
