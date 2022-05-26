@@ -7,16 +7,20 @@
 </div>
  <form method='post' action='{% url "add_user" %}' enctype="multipart/form-data">
    {%csrf_token%}
-  <label for="fname">user name</label><br>
+  <label>User Name</label><br>
   <input type="text" id="uname" name="uname" value="" placeholder="UserName" required=""><br>
-  <label for="fname">Email</label><br>
+  <label>Email</label><br>
   <input type="text" id="email" name="email" value="" placeholder="Email" required=""><br>
-  <label for="lname">Resume</label><br>
+  <label>Resume</label><br>
   <input type="file" name="resume" value="" required=""><br>
-  <label for="fname">work_experience </label><br>
+  <label>Work Experience</label><br>
   <input type="number" id="work_experience" name="work_experience" value="" placeholder="Experience" required=""><br>
-  <label for="fname">qualification</label><br>
+  <label>Qualification</label><br>
   <input type="text" id="qualification" name="qualification" value="" placeholder="qualification" required=""><br>
+     <label>Password</label><br>
+  <input type="password" name="password" value="" placeholder="qualification" required=""><br>
+    <label>Confirm Password</label><br>
+  <input type="password" name="passwords" value="" placeholder="qualification" required=""><br>
 
   <input type="submit" value="Submit">
 </form> 

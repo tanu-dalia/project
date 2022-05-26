@@ -1,4 +1,6 @@
 from sqlite3 import IntegrityError
+
+from django.db.models import Q
 from django.urls import reverse
 from django.shortcuts import render,redirect
 from django.http import HttpResponseRedirect
@@ -71,6 +73,10 @@ def masterPage(request):
 
 def allJobs(request):
     jb = job_posting.objects.all()
+    for i in jb:
+        print('Job Id - ', i.id)
+        ja = job_applied.objects.filter(Q(job_id_id=i.id) | Q(student_id_id=request.user))
+        print('Ja Data - ', ja)
     return render(request, 'UserSide/viewAllJobs.html',{'jb':jb})
 
 def applyJob(request,pk):
@@ -100,7 +106,7 @@ def viewCompanyJobs(request,pk):
 
 def logoutUser(request):
     logout(request)
-    return redirect(userLogin) 
+    return redirect(userLogin)
 
 
 

@@ -1,4 +1,4 @@
-{% extends 'UserSide/masterPage.html' %}
+{% extends 'temp/admin_layout.html' %}
 {% block body %}
 <div class="inner_page_agile">
    <h3>Applied Jobs</h3> 123456
@@ -9,6 +9,9 @@
    <table class="table mt-3">
       <tr>
          <th>Id</th>
+         <th>Candidate Name</th>
+         <th>Candidate Email</th>
+         <th>Candidate Resume</th>
          <th>Job Title</th>
          <th>Salary</th>
          <th>Job Timing</th>
@@ -20,6 +23,11 @@
       {% for i in jb %}
       <tr>
          <td>{{i.id}}</td>
+         <td>{{i.student_id.username}}</td>
+         <td>{{i.student_id.email}}</td>
+         {% for i in up %}
+         <td><a href="{{i.resume.url}}" target="_blank">Resume Link</a></td>
+         {% endfor %}
          <td>{{i.job_id.job_title}}</td>
          <td>{{i.job_id.salary_expected}}</td>
          <td>{{i.job_id.timing}}</td>

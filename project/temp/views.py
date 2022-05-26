@@ -1,3 +1,5 @@
+from sqlite3 import IntegrityError
+
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render,redirect
 from django.urls import reverse
@@ -144,25 +146,60 @@ def all_user(request):
     return render(request, "temp/all_user.html", {"user": stu})
     # return render(request, 'temp/layout.html')
 
-
 @login_required(login_url='loginAdmin')
 def add_user(request):
-    if request.method == 'POST':
-        user_id = request.POST['uname']
-        Email = request.POST['email']
-        resume = request.FILES['resume']
-        work_experience = request.POST['work_experience']
+    if request.method == "POST":
+        username = request.POST["uname"]
+        email = request.POST["email"]
         qualification = request.POST['qualification']
-        try:
-            a = company(_user_id=user_id, Email=Email, resume=resume, work_experience=work_experience,
-                        qualification=qualification)
-            a.save()
-        except:
-            return render(request, 'temp/add_user.html', {'message': 'try again'})
-        return HttpResponseRedirect(reverse('all_user'))
-    else:
-        return render(request, 'temp/add_user.html')
+        work = request.POST['work_experience']
+        resume = request.FILES['resume']
 
+        # Ensure password matches confirmation
+        password = request.POST["password"]
+        confirmation = request.POST["passwords"]
+        if password != confirmation:
+            return render(request, "temp/add_user.html", {
+                "message": "Passwords must match."
+            })
+
+        # Attempt to create new user
+        try:
+            users = user.objects.create_user(username, email, password)
+            users.save()
+            user_pro = user_profile(user_id=users, resume=resume, work_experience=work, qualification=qualification)
+            user_pro.save()
+            return redirect(all_user)
+        except IntegrityError:
+            return render(request, "temp/add_user.html", {
+                "message": "Username already taken."
+            })
+            # return render(request, 'temp/add_user.html', {"message": 'Registered successfully.'})
+    else:
+        return render(request, "temp/add_user.html")
+
+# if request.method == 'POST':
+    #     user_id = request.POST['uname']
+    #     Email = request.POST['email']
+    #     resume = request.FILES['resume']
+    #     work_experience = request.POST['work_experience']
+    #     qualification = request.POST['qualification']
+    #     try:
+    #         a = company(_user_id=user_id, Email=Email, resume=resume, work_experience=work_experience,
+    #                     qualification=qualification)
+    #         a.save()
+    #     except:
+    #         return render(request, 'temp/add_user.html', {'message': 'try again'})
+    #     return HttpResponseRedirect(reverse('all_user'))
+    # else:
+    #     return render(request, 'temp/add_user.html')
+
+def delete_user(request,id):
+    print("Selected User Id - ", id)
+    usr = user_profile.objects.get(id=id)
+    print('User Profile - ', usr.qualification)
+    usr.delete()
+    return redirect(all_user)
 
 @login_required(login_url='loginAdmin')
 def all_jobs(request):
@@ -245,7 +282,11 @@ def delete_job(request, id):
 
 def usersAppliedJobs(request):
     jb = job_applied.objects.all()
-    return render(request, 'temp/allAppliedJobs.html',{'jb':jb})
+    print("Candidate Id - ", jb)
+    for i in jb:
+        print(i.student_id_id)
+        up = user_profile.objects.filter(user_id_id=i.student_id_id)
+        return render(request, 'temp/allAppliedJobs.html',{'jb':jb,'up':up})
 
 def changestatus(request):
     b = job_applied.objects.get(id=request.GET['id'])

@@ -13,6 +13,7 @@ urlpatterns=[
     path('delete_company/<int:id>',views.delete_company,name="delete_company"),
     path('all_user',views.all_user,name="all_user"),
     path('add_user',views.add_user,name="add_user"),
+    path('delete_user/<int:id>', views.delete_user, name="delete_user"),
     path('add_job',views.add_job,name="add_job"),
     path('all_jobs',views.all_jobs,name="all_jobs"),
     path('edit_job/<int:id>',views.edit_job,name="edit_job"),

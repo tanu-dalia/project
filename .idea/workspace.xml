@@ -3,19 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="9f2269c0-a22c-4bd0-8c4f-07cd2d60a8e3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/UserSide/templates/UserSide/companiesJobs.html" beforeDir="false" afterPath="$PROJECT_DIR$/project/UserSide/templates/UserSide/companiesJobs.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/UserSide/templates/UserSide/viewAllAppliedJobs.html" beforeDir="false" afterPath="$PROJECT_DIR$/project/UserSide/templates/UserSide/viewAllAppliedJobs.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/UserSide/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/UserSide/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/project/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/project/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/project/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/project/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/project/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/temp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/temp/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/temp/templates/temp/add_company.html" beforeDir="false" afterPath="$PROJECT_DIR$/project/temp/templates/temp/add_company.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/temp/templates/temp/add_job.html" beforeDir="false" afterPath="$PROJECT_DIR$/project/temp/templates/temp/add_job.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/temp/templates/temp/add_user.html" beforeDir="false" afterPath="$PROJECT_DIR$/project/temp/templates/temp/add_user.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/temp/templates/temp/admin_layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/project/temp/templates/temp/admin_layout.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/temp/templates/temp/all_company.html" beforeDir="false" afterPath="$PROJECT_DIR$/project/temp/templates/temp/all_company.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/temp/templates/temp/all_jobs.html" beforeDir="false" afterPath="$PROJECT_DIR$/project/temp/templates/temp/all_jobs.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/temp/templates/temp/allAppliedJobs.html" beforeDir="false" afterPath="$PROJECT_DIR$/project/temp/templates/temp/allAppliedJobs.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/temp/templates/temp/all_user.html" beforeDir="false" afterPath="$PROJECT_DIR$/project/temp/templates/temp/all_user.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/temp/templates/temp/edit_company.html" beforeDir="false" afterPath="$PROJECT_DIR$/project/temp/templates/temp/edit_company.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/temp/templates/temp/edit_job.html" beforeDir="false" afterPath="$PROJECT_DIR$/project/temp/templates/temp/edit_job.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/temp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/temp/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/temp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/temp/views.py" afterDir="false" />
     </list>
