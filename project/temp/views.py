@@ -7,7 +7,7 @@ from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
-@login_required(login_url='/temp/loginAdmin/')
+@login_required(login_url='loginAdmin')
 def index(request):
     return render(request, "temp/admin_layout.html")
 
@@ -67,13 +67,13 @@ def loginAdmin(request):
 #     else:
 #         return render(request, "temp/register.html")
 
-@login_required(login_url='/temp/loginAdmin')
+@login_required(login_url='loginAdmin')
 def logout_view(request):
     logout(request)
     return HttpResponseRedirect(reverse('login'))
 
 
-@login_required(login_url='/temp/loginAdmin')
+@login_required(login_url='loginAdmin')
 def all_companies(request):
     companies = company.objects.all()
     print(companies)
@@ -81,7 +81,7 @@ def all_companies(request):
     # return render(request, 'temp/layout.html')
 
 
-@login_required(login_url='/temp/loginAdmin')
+@login_required(login_url='loginAdmin')
 def add_company(request):
     if request.method == 'POST':
         comapany_name = request.POST['cname']
@@ -99,7 +99,7 @@ def add_company(request):
         return render(request, 'temp/add_company.html')
 
 
-@login_required(login_url='/temp/loginAdmin')
+@login_required(login_url='loginAdmin')
 def edit_company(request, id):
     com = company.objects.get(id=id)
     if request.method == 'POST':
@@ -120,7 +120,7 @@ def edit_company(request, id):
         return render(request, 'temp/edit_company.html', {'com': com})
 
 
-@login_required(login_url='/temp/loginAdmin')
+@login_required(login_url='loginAdmin')
 def delete_company(request, id):
     a = company.objects.get(id=id)
     try:
@@ -130,7 +130,7 @@ def delete_company(request, id):
     return HttpResponseRedirect(reverse('all_company'))
 
 
-@login_required(login_url='/temp/loginAdmin')
+@login_required(login_url='loginAdmin')
 def all_user(request):
     stu = user_profile.objects.all()
     print(stu)
@@ -138,7 +138,7 @@ def all_user(request):
     # return render(request, 'temp/layout.html')
 
 
-@login_required(login_url='/temp/loginAdmin')
+@login_required(login_url='loginAdmin')
 def add_user(request):
     if request.method == 'POST':
         user_id = request.POST['uname']
@@ -157,14 +157,14 @@ def add_user(request):
         return render(request, 'temp/add_user.html')
 
 
-@login_required(login_url='/temp/loginAdmin')
+@login_required(login_url='loginAdmin')
 def all_jobs(request):
     jp = job_posting.objects.all()
     print(jp)
     return render(request, "temp/all_jobs.html", {"jp": jp})
 
 
-@login_required(login_url='/temp/loginAdmin')
+@login_required(login_url='loginAdmin')
 def add_job(request):
     if request.method == 'POST':
         comapany_id = company.objects.get(id=request.POST['company'])
@@ -188,7 +188,7 @@ def add_job(request):
         return render(request, 'temp/add_job.html', {'cid': cid})
 
 
-@login_required(login_url='/temp/loginAdmin')
+@login_required(login_url='loginAdmin')
 def edit_job(request, id):
     if request.method == 'POST':
         comapany_id = company.objects.get(id=request.POST['company'])
@@ -218,7 +218,7 @@ def edit_job(request, id):
         return render(request, 'temp/edit_job.html', {'cid': cid, 'jp': jp})
 
 
-@login_required(login_url='/temp/loginAdmin')
+@login_required(login_url='loginAdmin')
 def delete_job(request, id):
     a = job_posting.objects.get(id=id)
     try:
