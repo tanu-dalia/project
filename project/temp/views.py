@@ -226,3 +226,13 @@ def delete_job(request, id):
     except:
         return render(request, "temp/all_jobs.html", {'messge': 'try again'})
     return HttpResponseRedirect(reverse('all_jobs'))
+
+
+# @login_required(login_url='loginAdmin')
+# def delete_job(request, id):
+#     a = job_posting.objects.get(id=id)
+#     try:
+#         a.delete()
+#     except:
+#         return render(request, "temp/all_jobs.html", {'messge': 'try again'})
+#     return HttpResponseRedirect(reverse('all_jobs'))
