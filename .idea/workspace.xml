@@ -4,14 +4,33 @@
     <list default="true" id="9f2269c0-a22c-4bd0-8c4f-07cd2d60a8e3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/project/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/project/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/project/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/project/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/project/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/temp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/temp/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/temp/templates/temp/add_company.html" beforeDir="false" afterPath="$PROJECT_DIR$/project/temp/templates/temp/add_company.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/temp/templates/temp/add_job.html" beforeDir="false" afterPath="$PROJECT_DIR$/project/temp/templates/temp/add_job.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/temp/templates/temp/add_user.html" beforeDir="false" afterPath="$PROJECT_DIR$/project/temp/templates/temp/add_user.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/temp/templates/temp/admin_layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/project/temp/templates/temp/admin_layout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/temp/templates/temp/all_company.html" beforeDir="false" afterPath="$PROJECT_DIR$/project/temp/templates/temp/all_company.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/temp/templates/temp/all_jobs.html" beforeDir="false" afterPath="$PROJECT_DIR$/project/temp/templates/temp/all_jobs.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/temp/templates/temp/all_user.html" beforeDir="false" afterPath="$PROJECT_DIR$/project/temp/templates/temp/all_user.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/temp/templates/temp/edit_company.html" beforeDir="false" afterPath="$PROJECT_DIR$/project/temp/templates/temp/edit_company.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/temp/templates/temp/edit_job.html" beforeDir="false" afterPath="$PROJECT_DIR$/project/temp/templates/temp/edit_job.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/temp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/temp/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/temp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/temp/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="HTML File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -25,15 +44,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;F:/Official Projects/project/project/temp/templates/temp&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "F:/Official Projects/project/project/UserSide/templates/UserSide"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\Official Projects\project\project\UserSide\templates\UserSide" />
       <recent name="F:\Official Projects\project\project\temp\templates\temp" />
     </key>
   </component>

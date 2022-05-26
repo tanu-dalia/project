@@ -1,0 +1,54 @@
+{% extends 'UserSide/masterPage.html' %}
+
+{% block body %}
+<div class="inner_page_agile">
+    <h3>Jobs</h3>
+    <p>All Jobs Details</p>
+</div>
+<div class="inner_content_info_agileits">
+		<div class="container">
+			<div class="inner_sec_grids_info_w3ls">
+				<div class="col-md-8 job_info_left">
+					{% for i in pj %}
+					<div class="tab_grid_prof">
+						<div class="col-sm-9">
+							<div class="location_box1">
+								<div class="person-info">
+									<ul>
+										<li><span>Job Title</span>{{i.job_title}}</li>
+										<li><span>Salary Expected</span>{{i.salary_expected}}</li>
+										<li><span>Timings</span>{{i.timing}}</li>
+										<li><span>Job Type</span>{{i.type}}</li>
+										<li><span>Nationality</span>: Portuguse</li>
+									</ul>
+								</div>
+								<div class="read"><a href="{% url 'applyJob' i.id %}" class="read-more"> Apply for Job</a></div>
+							</div>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+					{% endfor %}
+					<ul class="pagination paging w3-agileits-paging">
+						<li>
+							<a href="#" aria-label="Previous">
+						<span aria-hidden="true">«</span>
+					  </a>
+						</li>
+						<li><a href="#">1</a></li>
+						<li><a href="#">2</a></li>
+						<li><a href="#">3</a></li>
+						<li><a href="#">4</a></li>
+						<li><a href="#">5</a></li>
+						<li>
+							<a href="#" aria-label="Next">
+						<span aria-hidden="true">»</span>
+					  </a>
+						</li>
+					</ul>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'UserSide/masterPage.html' %}
+{% block body %}
+<div class="inner_page_agile">
+   <h3>Applied Jobs</h3> 123456
+   <p>All your applied jobs</p>
+</div>
+<div class="container p-4 text-center">
+   <br>
+   <table class="table mt-3">
+      <tr>
+         <th>Id</th>
+         <th>Job Title</th>
+         <th>Salary</th>
+         <th>Job Timing</th>
+         <th>Job Type</th>
+         <th>Company Name</th>
+         <th>Status</th>
+      </tr>
+      {% for i in jb %}
+      <tr>
+         <td>{{i.id}}</td>
+         <td>{{i.job_id.job_title}}</td>
+         <td>{{i.job_id.salary_expected}}</td>
+         <td>{{i.job_id.timing}}</td>
+         <td>{{i.job_id.type}}</td>
+         <td>{{i.job_id.company_id.comapany_name}}</td>
+         <td>{{i.status}}</td>
+      </tr>
+      {% endfor %}
+   </table>
+</div>
+{% endblock %}

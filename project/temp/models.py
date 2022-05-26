@@ -36,7 +36,19 @@ class job_posting(models.Model):
 class job_applied(models.Model):
     student_id = models.ForeignKey(user, on_delete=models.CASCADE, related_name='student_id')
     job_id = models.ForeignKey(job_posting, on_delete=models.CASCADE, related_name='job_id')
-    status = models.CharField(max_length=400)
+    status = models.CharField(max_length=400,default='PENDING')
+
+    def isApprove(self):
+        if self.status == "APPROVED":
+            return True
+        else:
+            return False
+
+    def isRejected(self):
+        if self.status == "REJECTED":
+            return True
+        else:
+            return False
 
 # class notifications(models.Model):
 #      user_id=models.ForeignKey(user,on_delete=models.CASCADE,related_name='user_id')

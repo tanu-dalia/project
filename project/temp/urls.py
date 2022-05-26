@@ -4,8 +4,9 @@ from .import views
 
 urlpatterns=[
     path('index',views.index,name='index'),
+    path('home',views.home,name='home'),
     path('loginAdmin',views.loginAdmin,name='loginAdmin'),
-    path('logout', views.logout_view, name = 'logout'),
+    path('logoutAdmin', views.logout_view, name = 'logoutAdmin'),
     path('all_company', views.all_companies, name="all_company"),
     path('add_company',views.add_company,name="add_company"),
     path('edit_company/<int:id>',views.edit_company,name="edit_company"),
@@ -16,4 +17,7 @@ urlpatterns=[
     path('all_jobs',views.all_jobs,name="all_jobs"),
     path('edit_job/<int:id>',views.edit_job,name="edit_job"),
     path('delete_job/<int:id>',views.delete_job,name="delete_job"),
+    path('usersAppliedJobs',views.usersAppliedJobs,name="usersAppliedJobs"),
+    path("changestatus/",views.changestatus,name="changestatus"),
 ]
+

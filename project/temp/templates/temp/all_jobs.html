@@ -1,8 +1,16 @@
 {% extends 'temp/admin_layout.html' %}
 {% block body %}
+<div class="inner_page_agile">
+    <h3>Jobs</h3>
+    <p>All Jobs Details</p>
+</div>
 <div class="container p-4 text-center">
+   <br>
    <h2>Job List</h2>
+   <br>
    <a href = "{% url 'add_job' %}" type="button" align="right" class="btn btn-primary">Add Job</a>
+   <br>
+   <br>
    <table class="table mt-3">
       <tr>
          <th>Id</th>

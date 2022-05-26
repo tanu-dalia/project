@@ -1,19 +1,23 @@
 {% extends 'temp/admin_layout.html' %}
 
 {% block body %}
+<div class="inner_page_agile">
+    <h3>Company</h3>
+    <p>Add new company here</p>
+</div>
+<form method='post' action='{% url "add_company" %}'>
+    {%csrf_token%}
+    <label>Company name</label><br>
+    <input type="text" id="cname" name="cname" value="" placeholder="name" required=""><br>
+    <label>Location</label><br>
+    <input type="text" id="loc" name="loc" value="" placeholder="location" required=""><br><br>
+    <label >Number_of_employes</label><br>
+    <input type="number" id="number_of_employes" name="number_of_employes" value="" placeholder="no of employes"
+           required=""><br>
+    <label >Specilization</label><br>
+    <input type="text" id="specilization" name="specilization" value="" placeholder="specilization" required=""><br>
 
- <form method='post' action='{% url "add_company" %}'>
-   {%csrf_token%}
-  <label for="fname">Company name</label><br>
-  <input type="text" id="cname" name="cname" value="" placeholder="name" required=""><br>
-  <label for="lname">Location</label><br>
-  <input type="text" id="loc" name="loc" value="" placeholder="location" required=""><br><br>
-  <label for="fname">Number_of_employes</label><br>
-  <input type="number" id="number_of_employes" name="number_of_employes" value="" placeholder="no of employes" required=""><br>
-  <label for="fname">Specilization</label><br>
-  <input type="text" id="specilization" name="specilization" value="" placeholder="specilization" required=""><br>
-
-  <input type="submit" value="Submit">
-</form> 
+    <input type="submit" value="Submit">
+</form>
 
 {% endblock %}

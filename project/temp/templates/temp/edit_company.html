@@ -1,7 +1,10 @@
 {% extends 'temp/admin_layout.html' %}
 
 {% block body %}
-
+<div class="inner_page_agile">
+    <h3>Company</h3>
+    <p>Edit your company details</p>
+</div>
  <form method='post' action='{% url "edit_company" com.id %}'>
    {%csrf_token%}
   <label for="fname">Company name</label><br>

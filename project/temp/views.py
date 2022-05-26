@@ -1,5 +1,5 @@
 from django.contrib.auth import authenticate, login, logout
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.urls import reverse
 from django.http import HttpResponse, HttpResponseRedirect
 from .models import user, user_profile, company, job_applied, job_posting
@@ -11,6 +11,13 @@ from django.contrib.auth.decorators import login_required
 def index(request):
     return render(request, "temp/admin_layout.html")
 
+
+@login_required(login_url='loginAdmin')
+def home(request):
+    jb = job_posting.objects.all().count()
+    cp = company.objects.all().count()
+    us = user_profile.objects.all().count()
+    return render(request, "temp/home.html", {'jb': jb, 'cp': cp, 'us': us})
 
 def loginAdmin(request):
     if request.method == "POST":
@@ -24,7 +31,7 @@ def loginAdmin(request):
         if result is not None:
             if result.is_superuser:
                 login(request, result)
-                return HttpResponseRedirect(reverse("index"))
+                return HttpResponseRedirect(reverse("home"))
             else:
                 return render(request, "temp/login.html", {
                     "message": "Wrong User Credentials."
@@ -227,7 +234,6 @@ def delete_job(request, id):
         return render(request, "temp/all_jobs.html", {'messge': 'try again'})
     return HttpResponseRedirect(reverse('all_jobs'))
 
-
 # @login_required(login_url='loginAdmin')
 # def delete_job(request, id):
 #     a = job_posting.objects.get(id=id)
@@ -236,3 +242,13 @@ def delete_job(request, id):
 #     except:
 #         return render(request, "temp/all_jobs.html", {'messge': 'try again'})
 #     return HttpResponseRedirect(reverse('all_jobs'))
+
+def usersAppliedJobs(request):
+    jb = job_applied.objects.all()
+    return render(request, 'temp/allAppliedJobs.html',{'jb':jb})
+
+def changestatus(request):
+    b = job_applied.objects.get(id=request.GET['id'])
+    b.status = request.GET['status']
+    b.save()
+    return redirect(usersAppliedJobs)

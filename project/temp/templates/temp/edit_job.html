@@ -1,5 +1,9 @@
 {% extends 'temp/admin_layout.html' %}
 {% block body %}
+<div class="inner_page_agile">
+    <h3>Job</h3>
+    <p>Edit your job details</p>
+</div>
 <form method='post' action='{% url "edit_job" id=jp.id %}'>
    {%csrf_token%}
    <select id="country13" name="company" class="frm-field required" required>
