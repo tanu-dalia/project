@@ -70,7 +70,7 @@ def loginAdmin(request):
 @login_required(login_url='loginAdmin')
 def logout_view(request):
     logout(request)
-    return HttpResponseRedirect(reverse('login'))
+    return HttpResponseRedirect(reverse('loginAdmin'))
 
 
 @login_required(login_url='loginAdmin')

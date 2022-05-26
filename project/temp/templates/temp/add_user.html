@@ -2,7 +2,7 @@
 
 {% block body %}
 
- <form method='post' action='{% url "add_user" %}'>
+ <form method='post' action='{% url "add_user" %}' enctype="multipart/form-data">
    {%csrf_token%}
   <label for="fname">user name</label><br>
   <input type="text" id="uname" name="uname" value="" placeholder="UserName" required=""><br>
