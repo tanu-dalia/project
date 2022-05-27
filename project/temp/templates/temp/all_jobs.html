@@ -19,12 +19,13 @@
          <th>Job Timing</th>
          <th>Job Type</th>
          <th>Company Name</th>
+         <th>Actions</th>
       </tr>
       {% for i in jp %}
       <tr>
          <td>{{i.id}}</td>
          <td>{{i.job_title}}</td>
-         <td>{{i.salary_expected}}</td>
+         <td>Rs. {{i.salary_expected}}</td>
          <td>{{i.timing}}</td>
          <td>{{i.type}}</td>
          <td>{{i.company_id.comapany_name}}</td>

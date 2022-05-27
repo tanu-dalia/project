@@ -85,14 +85,21 @@ def allJobs(request):
 
 @login_required(login_url='userLogin')
 def applyJob(request,pk):
-    current_user = request.user
-    current_userId = current_user.id
-    print('Current User Id - ', current_userId)
-    j = job_applied()
-    j.student_id = request.user
-    j.job_id = job_posting.objects.get(id=pk)
-    j.save()
-    return redirect(appliedJobs)
+    job = job_posting.objects.get(id=pk)
+    already_applied = job_applied.objects.filter(student_id=request.user, job_id = job)
+    print(already_applied)
+    if (len(already_applied) == 0):
+    # current_user = request.user
+    # current_userId = current_user.id
+    # print('Current User Id - ', current_userId)
+        j = job_applied()
+        j.student_id = request.user
+        j.job_id = job
+        j.save()
+        return redirect(appliedJobs)
+    else:
+        jb = job_applied.objects.filter(student_id_id=request.user)
+        return render(request, 'UserSide/viewAllAppliedJobs.html',{'jb':jb, 'message': 'Already applied for the job.'})
 
 
 @login_required(login_url='userLogin')

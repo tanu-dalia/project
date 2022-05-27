@@ -7,6 +7,10 @@
 {% if jb %}
 <div class="container p-4 text-center">
     <br>
+        {% if message %}
+        <div class="alert-danger">{{message}}</div>
+        {% endif %}
+    <br>
     <table class="table mt-3">
         <tr>
             <th>Id</th>
@@ -25,7 +29,16 @@
             <td>{{i.job_id.timing}}</td>
             <td>{{i.job_id.type}}</td>
             <td>{{i.job_id.company_id.comapany_name}}</td>
-            <td>{{i.status}}</td>
+            <td>
+                {% if i.status == 'PENDING' %}
+                    <span class="badge badge-warning">{{i.status}}</span>
+                    {% elif i.status == 'APPROVED' %}
+                    <span class="badge badge-success text-white">{{i.status}}</span>
+                    {% else %}
+                    <span class="badge badge-danger text-white">{{i.status}}</span>
+
+                {% endif %}
+            </td>
         </tr>
         {% endfor %}
     </table>
