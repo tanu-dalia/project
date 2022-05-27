@@ -4,21 +4,26 @@
     <h3>Job</h3>
     <p>Add new job here</p>
 </div>
-<form method='post' action='{% url "add_job" %}'>
-   {%csrf_token%}
-   <select id="country13" name="company" class="frm-field required" required>
-      {% for i in cid %}
-      <option value="{{i.id}}">{{i.comapany_name}}</option>
-      {% endfor %}
-   </select>
-   <label>Job title</label><br>
-   <input type="text" id="title" name="title" placeholder="title" required=""><br><br>
-   <label>salary_expected</label><br>
-   <input type="text" id="salary" name="salary" placeholder="salary_expected" required=""><br>
-   <label>timings</label><br>
-   <input type="text" id="timings" name="timings" placeholder="timings" required=""><br>
-   <label>type</label><br>
-   <input type="text" id="type" name="type" placeholder="type" required=""><br>
-   <input type="submit" value="Submit">
-</form>
+<div class="w3layouts_mail_grid">
+    <form method='post' action='{% url "add_job" %}'>
+        {%csrf_token%}
+        <div class="col-md-6" style="left: 365px;">
+            <select id="country12" name="company" class="frm-field required" style="padding: 1em 1em; width: 100%;" required>
+                {% for i in cid %}
+                <option value="{{i.id}}">{{i.comapany_name}}</option>
+                {% endfor %}
+            </select>
+            <br>
+            <br>
+            <input type="text" id="title" name="title" placeholder="Job Title" required="">
+            <input type="text" id="salary" name="salary" placeholder="Expected Salary" required="">
+            <input type="text" id="timings" name="timings" placeholder="Timings" required="">
+            <input type="text" id="type" name="type" placeholder="Job Type" required="">
+            <input type="submit" value="Submit">
+        </div>
+        <div class="clearfix"></div>
+        <br>
+        <br>
+    </form>
+</div>
 {% endblock %}

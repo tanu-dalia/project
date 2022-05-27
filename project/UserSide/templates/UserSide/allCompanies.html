@@ -7,23 +7,24 @@
 </div>
 
 <div class="inner_content_info_agileits">
-   <div class="container">
-      <div class="inner_sec_grids_info_w3ls">
-         {% for i in companies %}
-         <div class="col-md-4 blog-grid one">
-            <div class="events_info">
-               <h4><a href="">{{ i.comapany_name }}</a></h4>
-               <div class="row"><p>Address</p><h5>{{i.location}}</h5></div>
-               <div class="row"><p>Working Employees</p><h5>{{i.working_employes}}</h5></div>
-               <div class="row"><p>Specialization</p><h5>{{i.Specialization}}</h5></div>
-               <br>
-               <a href="{% url 'viewCompanyJobs' i.id %}"><input type="submit" value="View Jobs"></a>
+    <div class="container">
+        <div class="inner_sec_grids_info_w3ls">
+            {% for i in companies %}
+            <div class="col-md-4 blog-grid one">
+                <div class="events_info">
+                    <h4><a href="">{{ i.comapany_name }}</a></h4>
+                    <div class="row"><p>Address</p><h5>{{i.location}}</h5></div>
+                    <div class="row"><p>Working Employees</p><h5>{{i.working_employes}}</h5></div>
+                    <div class="row"><p>Specialization</p><h5>{{i.Specialization}}</h5></div>
+                    <br>
+                    <a href="{% url 'viewCompanyJobs' i.id %}"><input type="submit" value="View Jobs"
+                                                                      style="background: #ffb900; width: 50%; color: #fff; font-weight: 700; padding: 0.58em 1em;"></a>
+                </div>
             </div>
-         </div>
-         {% endfor %}
-         <div class="clearfix"></div>
-      </div>
-   </div>
+            {% endfor %}
+            <div class="clearfix"></div>
+        </div>
+    </div>
 </div>
 
 <!-- </div> -->

@@ -1,28 +1,29 @@
 {% extends 'UserSide/masterPage.html' %}
 {% block body %}
 <div class="inner_page_agile">
-   <h3>Posted Jobs</h3> 123456
-   <p>All Jobs and Companies</p>
+    <h3>Posted Jobs</h3> 123456
+    <p>All Jobs Posted By Companies</p>
 </div>
 <div class="inner_content_info_agileits">
-   <div class="container">
-      <div class="inner_sec_grids_info_w3ls">
-         {% for i in jb %}
-         <div class="col-md-4 blog-grid one">
-            <div class="events_info">
-               <h4><a href="">{{ i.job_title }}</a></h4>
-               <h4><a href="">{{i.company_id.comapany_name}}</a></h4>
-               <div class="row"><p>Expected Salary</p><h5>₹ {{i.salary_expected}}</h5></div>
-               <div class="row"><p>Job Type</p><h5>{{i.type}}</h5></div>
-                <div class="row"><p>Job Timings</p><h5>{{i.timing}}</h5></div>
-               <br>
-               <a href="{% url 'applyJob' i.id %}"><input type="submit" value="Apply"></a>
-               <p></p>
+    <div class="container">
+        <div class="inner_sec_grids_info_w3ls">
+            {% for i in jb %}
+            <div class="col-md-4 blog-grid one">
+                <div class="events_info">
+                    <h4><a href="">{{ i.job_title }}</a></h4>
+                    <h4><a href="">{{i.company_id.comapany_name}}</a></h4>
+                    <div class="row"><p>Expected Salary</p><h5>₹ {{i.salary_expected}}</h5></div>
+                    <div class="row"><p>Job Type</p><h5>{{i.type}}</h5></div>
+                    <div class="row"><p>Job Timings</p><h5>{{i.timing}}</h5></div>
+                    <br>
+                    <a href="{% url 'applyJob' i.id %}"><input type="submit" value="Apply"
+                                                               style="background: #ffb900; width: 50%; color: #fff; font-weight: 700; padding: 0.58em 1em;"></a>
+                    <p></p>
+                </div>
             </div>
-         </div>
-         {% endfor %}
-         <div class="clearfix"></div>
-      </div>
-   </div>
+            {% endfor %}
+            <div class="clearfix"></div>
+        </div>
+    </div>
 </div>
 {% endblock %}

@@ -68,9 +68,12 @@ def userLogin(request):
         return render(request, 'UserSide/userLogin.html')
 
 
+@login_required(login_url='userLogin')
 def masterPage(request):
     return render(request, 'UserSide/masterPage.html')
 
+
+@login_required(login_url='userLogin')
 def allJobs(request):
     jb = job_posting.objects.all()
     for i in jb:
@@ -79,6 +82,8 @@ def allJobs(request):
         print('Ja Data - ', ja)
     return render(request, 'UserSide/viewAllJobs.html',{'jb':jb})
 
+
+@login_required(login_url='userLogin')
 def applyJob(request,pk):
     current_user = request.user
     current_userId = current_user.id
@@ -89,21 +94,29 @@ def applyJob(request,pk):
     j.save()
     return redirect(appliedJobs)
 
+
+@login_required(login_url='userLogin')
 def appliedJobs(request):
     jb = job_applied.objects.filter(student_id_id=request.user)
     return render(request, 'UserSide/viewAllAppliedJobs.html',{'jb':jb})
 
+
+@login_required(login_url='userLogin')
 def allCompanies(request):
     companies = company.objects.all()
     print(companies)
     return render(request, "UserSide/allCompanies.html", {"companies": companies})
 
+
+@login_required(login_url='userLogin')
 def viewCompanyJobs(request,pk):
     print('Company Id - ', pk)
     pj = job_posting.objects.filter(company_id_id=pk)
     print(pj)
     return render(request, "UserSide/companiesJobs.html", {"pj": pj})
 
+
+@login_required(login_url='userLogin')
 def logoutUser(request):
     logout(request)
     return redirect(userLogin)

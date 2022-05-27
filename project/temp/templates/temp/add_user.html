@@ -5,26 +5,25 @@
     <h3>User</h3>
     <p>Add new user here</p>
 </div>
- <form method='post' action='{% url "add_user" %}' enctype="multipart/form-data">
-   {%csrf_token%}
-  <label>User Name</label><br>
-  <input type="text" id="uname" name="uname" value="" placeholder="UserName" required=""><br>
-  <label>Email</label><br>
-  <input type="text" id="email" name="email" value="" placeholder="Email" required=""><br>
-  <label>Resume</label><br>
-  <input type="file" name="resume" value="" required=""><br>
-  <label>Work Experience</label><br>
-  <input type="number" id="work_experience" name="work_experience" value="" placeholder="Experience" required=""><br>
-  <label>Qualification</label><br>
-  <input type="text" id="qualification" name="qualification" value="" placeholder="qualification" required=""><br>
-     <label>Password</label><br>
-  <input type="password" name="password" value="" placeholder="qualification" required=""><br>
-    <label>Confirm Password</label><br>
-  <input type="password" name="passwords" value="" placeholder="qualification" required=""><br>
-
-  <input type="submit" value="Submit">
-</form> 
-
-
+<div class="w3layouts_mail_grid">
+    <form method='post' action='{% url "add_user" %}' enctype="multipart/form-data">
+        {%csrf_token%}
+        <div class="col-md-6" style="left: 365px;">
+            <input type="text" id="uname" name="uname" value="" placeholder="User Name" required="">
+            <input type="text" id="email" name="email" value="" placeholder="Email" required="">
+            <input type="file" name="resume" value="" placeholder="Resume" required="">
+            <br>
+            <input type="text" id="work_experience" name="work_experience" value="" placeholder="Work Experience"
+                   required="">
+            <input type="text" id="qualification" name="qualification" value="" placeholder="Qualification" required="">
+            <input type="password" name="password" value="" placeholder="Password" required="" style="border: 1px solid #e4e2e2; padding: 14px; background: #f5f5f5; width: 100%; margin-bottom: 1em;">
+            <input type="password" name="passwords" value="" placeholder="Confirm Password" required="" style="border: 1px solid #e4e2e2; padding: 14px; background: #f5f5f5; width: 100%; margin-bottom: 1em;">
+            <input type="submit" value="Submit">
+        </div>
+        <div class="clearfix"></div>
+        <br>
+        <br>
+    </form>
+</div>
 
 {% endblock %}

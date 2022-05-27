@@ -21,6 +21,7 @@ def home(request):
     us = user_profile.objects.all().count()
     return render(request, "temp/home.html", {'jb': jb, 'cp': cp, 'us': us})
 
+
 def loginAdmin(request):
     if request.method == "POST":
         # Attempt to sign user in
@@ -146,6 +147,7 @@ def all_user(request):
     return render(request, "temp/all_user.html", {"user": stu})
     # return render(request, 'temp/layout.html')
 
+
 @login_required(login_url='loginAdmin')
 def add_user(request):
     if request.method == "POST":
@@ -194,12 +196,15 @@ def add_user(request):
     # else:
     #     return render(request, 'temp/add_user.html')
 
+
+@login_required(login_url='loginAdmin')
 def delete_user(request,id):
     print("Selected User Id - ", id)
     usr = user_profile.objects.get(id=id)
     print('User Profile - ', usr.qualification)
     usr.delete()
     return redirect(all_user)
+
 
 @login_required(login_url='loginAdmin')
 def all_jobs(request):
@@ -280,6 +285,8 @@ def delete_job(request, id):
 #         return render(request, "temp/all_jobs.html", {'messge': 'try again'})
 #     return HttpResponseRedirect(reverse('all_jobs'))
 
+
+@login_required(login_url='loginAdmin')
 def usersAppliedJobs(request):
     jb = job_applied.objects.all()
     print("Candidate Id - ", jb)
@@ -288,6 +295,8 @@ def usersAppliedJobs(request):
         up = user_profile.objects.filter(user_id_id=i.student_id_id)
         return render(request, 'temp/allAppliedJobs.html',{'jb':jb,'up':up})
 
+
+@login_required(login_url='loginAdmin')
 def changestatus(request):
     b = job_applied.objects.get(id=request.GET['id'])
     b.status = request.GET['status']

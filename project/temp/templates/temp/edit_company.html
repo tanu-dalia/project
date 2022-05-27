@@ -5,18 +5,22 @@
     <h3>Company</h3>
     <p>Edit your company details</p>
 </div>
- <form method='post' action='{% url "edit_company" com.id %}'>
-   {%csrf_token%}
-  <label for="fname">Company name</label><br>
-  <input type="text" id="cname" name="cname" value="{{com.comapany_name}}" required=""><br>
-  <label for="lname">Location</label><br>
-  <input type="text" id="loc" name="loc" value="{{com.location}}" required=""><br><br>
-  <label for="fname">Number_of_employes</label><br>
-  <input type="text" id="number_of_employes" name="number_of_employes" value="{{com.working_employes}}" required=""><br>
-  <label for="fname">Specilization</label><br>
-  <input type="text" id="specilization" name="specilization" value="{{com.Specialization}}" required=""><br>
-
-  <input type="submit" value="Submit">
-</form> 
-
+<div class="w3layouts_mail_grid">
+    <form method='post' action='{% url "edit_company" com.id %}'>
+        {%csrf_token%}
+        <div class="col-md-6" style="left: 365px;">
+            <input type="text" id="cname" name="cname" value="{{com.comapany_name}}" placeholder="Company Name"
+                   required="">
+            <input type="text" id="loc" name="loc" value="{{com.location}}" placeholder="Location" required="">
+            <input type="text" id="number_of_employes" name="number_of_employes" value="{{com.working_employes}}"
+                   placeholder="Number of Employees" required="">
+            <input type="text" id="specilization" name="specilization" value="{{com.Specialization}}"
+                   placeholder="Specialization" required="">
+            <input type="submit" value="Update">
+        </div>
+        <div class="clearfix"></div>
+        <br>
+        <br>
+    </form>
+</div>
 {% endblock %}

@@ -5,19 +5,21 @@
     <h3>Company</h3>
     <p>Add new company here</p>
 </div>
-<form method='post' action='{% url "add_company" %}'>
-    {%csrf_token%}
-    <label>Company name</label><br>
-    <input type="text" id="cname" name="cname" value="" placeholder="name" required=""><br>
-    <label>Location</label><br>
-    <input type="text" id="loc" name="loc" value="" placeholder="location" required=""><br><br>
-    <label >Number_of_employes</label><br>
-    <input type="number" id="number_of_employes" name="number_of_employes" value="" placeholder="no of employes"
-           required=""><br>
-    <label >Specilization</label><br>
-    <input type="text" id="specilization" name="specilization" value="" placeholder="specilization" required=""><br>
-
-    <input type="submit" value="Submit">
-</form>
-
+<div class="w3layouts_mail_grid">
+    <form method='post' action='{% url "add_company" %}'>
+        {% csrf_token %}
+        <div class="col-md-6" style="left: 365px;">
+            <input type="text" id="cname" name="cname" value="" placeholder="Company Name" required="">
+            <input type="text" id="loc" name="loc" value="" placeholder="Location" required="">
+            <input type="text" id="number_of_employes" name="number_of_employes" value=""
+                   placeholder="Number of employees" required="">
+            <input type="text" id="specilization" name="specilization" value="" placeholder="Specialization"
+                   required="">
+            <input type="submit" value="Submit">
+        </div>
+        <div class="clearfix"></div>
+        <br>
+        <br>
+    </form>
+</div>
 {% endblock %}
