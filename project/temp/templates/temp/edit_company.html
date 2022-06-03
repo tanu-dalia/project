@@ -5,11 +5,11 @@
  <form method='post' action='{% url "edit_company" com.id %}'>
    {%csrf_token%}
   <label for="fname">Company name</label><br>
-  <input type="text" id="cname" name="cname" value="{{com.comapany_name}}" required=""><br>
+  <input type="text" id="cname" name="cname" value="{{com.comapany_name}}" minlength="3" required=""><br>
   <label for="lname">Location</label><br>
   <input type="text" id="loc" name="loc" value="{{com.location}}" required=""><br><br>
   <label for="fname">Number_of_employes</label><br>
-  <input type="text" id="number_of_employes" name="number_of_employes" value="{{com.working_employes}}" required=""><br>
+  <input type="text" id="number_of_employes" name="number_of_employes" value="{{com.working_employes}}" min="1" required=""><br>
   <label for="fname">Specilization</label><br>
   <input type="text" id="specilization" name="specilization" value="{{com.Specialization}}" required=""><br>
 

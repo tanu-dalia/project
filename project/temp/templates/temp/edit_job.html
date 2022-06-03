@@ -1,0 +1,24 @@
+{% extends 'temp/admin_layout.html' %}
+
+{% block body %}
+
+ <form method='post' action='{% url "edit_job" com.id %}'>
+   {%csrf_token%}
+  <label for="fname">Company Id</label><br>
+  <select id="country13" name="company" class="frm-field required" required>
+    {% for i in company %}
+    <option value="{{i.id}}" {% if company == i.id %} selected {% endif %}>{{i.comapany_name}}</option>
+    {% endfor %}
+</select>
+  <label for="lname">job_title</label><br>
+  <input type="text" id="jtitle" name="jtitle" value="{{com.job_title}}" required=""><br><br>
+  <label for="fname">salary_expected</label><br>
+  <input type="text" id="salary_expected" name="salary" value="{{com.salary_expected}}" required=""><br>
+  <label for="fname">timing</label><br>
+  <input type="text" id="timing" name="timing" value="{{com.timing}}" required=""><br>
+  <label for="fname">type</label><br>
+  <input type="text" id="type" name="type" value="{{com.type}}" required=""><br>
+  <input type="submit" value="Submit">
+</form> 
+
+{% endblock %}

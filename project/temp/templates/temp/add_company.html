@@ -2,18 +2,20 @@
 
 {% block body %}
 
+
+
  <form method='post' action='{% url "add_company" %}'>
    {%csrf_token%}
-  <label for="fname">Company name</label><br>
-  <input type="text" id="cname" name="cname" value="" placeholder="name" required=""><br>
-  <label for="lname">Location</label><br>
-  <input type="text" id="loc" name="loc" value="" placeholder="location" required=""><br><br>
-  <label for="fname">Number_of_employes</label><br>
-  <input type="number" id="number_of_employes" name="number_of_employes" value="" placeholder="no of employes" required=""><br>
-  <label for="fname">Specilization</label><br>
-  <input type="text" id="specilization" name="specilization" value="" placeholder="specilization" required=""><br>
-
+  <label for="lname">comapany name</label><br>
+  <input type="text" id="title" name="cname" value="" placeholder="title" minlength="3" required=""><br><br>
+  <label for="fname">location</label><br>
+  <input type="text" id="salary" name="loc" value="" placeholder="salary_expected" min="100" required=""><br>
+  <label for="fname">working Employes</label><br>
+  <input type="number" id="timings" name="number_of_employes" value="" placeholder="number of employes" min="1" required=""><br>
+  <label for="fname">specilization</label><br>
+  <input type="text" id="type" name="specilization" value="" placeholder="type" required=""><br>
   <input type="submit" value="Submit">
+  
 </form> 
 
 {% endblock %}

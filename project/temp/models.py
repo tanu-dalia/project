@@ -27,7 +27,7 @@ class job_posting(models.Model):
     company_id=models.ForeignKey(company,on_delete=models.CASCADE,related_name='company_id')
     job_title=models.CharField(max_length=300)
     salary_expected=models.IntegerField()
-    timing=models.IntegerField()
+    timing=models.CharField(max_length=50)
     type=models.CharField(max_length=200)
 
 
