@@ -130,12 +130,7 @@
         var docControlsStr =
             `<!-- Document control buttons-->
             <div id="document-controls">
-                <button data-action="clear" title="Remove saved draft">Clear draft</button>
-                <a role="button" data-action="save" title="Download as HTML" id="download-link" download>Save HTML</a>
                 <button data-action="print" title="Print">Print</button>
-            </div>
-            <div id="github-link">     
-                <a class="github-button" href="https://github.com/Tombarr/html-resume-template" data-size="large" data-show-count="true" aria-label="Star Tombarr/html-resume-template on GitHub">Star</a>
             </div>`;
         var docControls = htmlToElement(docControlsStr);
         document.body.appendChild(docControls);
@@ -242,67 +237,6 @@
     }
 
     // Metadata
-
-    function updateMetadata() {
-        updateMetaDate();
-        updateMetaSubject();
-        updateMetaAuthor();
-        updateMetaKeywords();
-        updateTitle();
-    }
-
-    function updateMetaDate() {
-        document.querySelector('meta[name="date"]').setAttribute('content', getDateFormatted());
-    }
-
-    function getSummary() {
-        var summaryEl = document.querySelector('.summary > p');
-        if (!(summaryEl && summaryEl.textContent)) return '';
-        var summaryText = summaryEl.textContent.trim().replace(/(\r\n\t|\n|\r\t)/gm, " ").replace(/\s+/g, " ");
-        return summaryText;
-    }
-
-    function getAuthor() {
-        var authorEl = document.querySelector('.name');
-        if (!(authorEl && authorEl.textContent)) return '';
-        var authorName = authorEl.getAttribute('aria-label').trim();
-        return authorName;
-    }
-
-    function getSkills() {
-        var skillEls = document.querySelectorAll('.skills li');
-        if (!(skillEls && skillEls.length)) return [];
-        var skills = new Array(skillEls.length);
-        for (var i = 0, e = skillEls.length; i < e; i++) {
-            skills[i] = skillEls[i].textContent.trim();
-        }
-        return skills;
-    }
-
-    function updateMetaSubject() {
-        var summaryText = getSummary();
-        if ((!summaryText && summaryText.length)) return;
-        document.querySelector('meta[name="subject"]').setAttribute('content', summaryText);
-    }
-
-    function updateMetaAuthor() {
-        var authorName = getAuthor();
-        if (!(authorName && authorName.length)) return;
-        document.querySelector('meta[name="author"]').setAttribute('content', authorName);
-    }
-
-    function updateMetaKeywords() {
-        var skills = getSkills();
-        if (!(skills && skills.length)) return;
-        document.querySelector('meta[name="keywords"]').setAttribute('content', skills.join(','));
-    }
-
-    function updateTitle() {
-        var authorName = getAuthor();
-        var summaryText = getSummary();
-        if ((!summaryText && summaryText.length) || !(authorName && authorName.length)) return;
-        document.title = authorName + " - " + summaryText;
-    }
 
     if (hasLocalStorage) {
         restoreSavedPage();

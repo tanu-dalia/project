@@ -3,12 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="9f2269c0-a22c-4bd0-8c4f-07cd2d60a8e3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/UserSide/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/UserSide/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/UserSide/templates/UserSide/masterPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/project/UserSide/templates/UserSide/masterPage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/UserSide/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/UserSide/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/UserSide/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/UserSide/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/UserSide/templates/UserSide/checkResume.html" beforeDir="false" afterPath="$PROJECT_DIR$/project/UserSide/templates/UserSide/checkResume.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/project/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/temp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/temp/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/temp/static/assets/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/project/temp/static/assets/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
