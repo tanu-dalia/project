@@ -36,7 +36,7 @@ class job_posting(models.Model):
 class job_applied(models.Model):
     student_id = models.ForeignKey(user, on_delete=models.CASCADE, related_name='student_id')
     job_id = models.ForeignKey(job_posting, on_delete=models.CASCADE, related_name='job_id')
-    status = models.CharField(max_length=400,default='PENDING')
+    status = models.CharField(max_length=400, default='PENDING')
 
     def isApprove(self):
         if self.status == "APPROVED":
@@ -50,6 +50,29 @@ class job_applied(models.Model):
         else:
             return False
 
+
+class ResumeModel(models.Model):
+    profileId = models.OneToOneField(user, on_delete=models.CASCADE)
+    name = models.CharField(max_length=400)
+    email = models.CharField(max_length=400)
+    gender = models.CharField(max_length=400)
+    phonenumber = models.CharField(max_length=400)
+    address = models.CharField(max_length=400,default="")
+    github = models.CharField(max_length=400)
+    linkdin = models.CharField(max_length=400)
+    skills = models.CharField(max_length=1000)
+    aboutyou = models.CharField(max_length=1000)
+    tenthschool = models.CharField(max_length=400)
+    tenthpassing = models.CharField(max_length=400)
+    tenthpercent = models.CharField(max_length=400)
+    twelveschool = models.CharField(max_length=400)
+    twelvepassing = models.CharField(max_length=400)
+    twelvepercent = models.CharField(max_length=400)
+    graduateschool = models.CharField(max_length=400)
+    graduatepassing = models.CharField(max_length=400)
+    graduatepercent = models.CharField(max_length=400)
+    expereience = models.CharField(max_length=1000)
+    projects = models.CharField(max_length=2000)
 # class notifications(models.Model):
 #      user_id=models.ForeignKey(user,on_delete=models.CASCADE,related_name='user_id')
 #      notification_details=models.CharField(max_length=300)

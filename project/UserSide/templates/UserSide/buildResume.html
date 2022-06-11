@@ -1,0 +1,83 @@
+{% extends 'UserSide/masterPage.html' %}
+
+{% block body %}
+<div class="inner_page_agile">
+    <h3>Resume</h3>
+    <p>Build Your Resume Here</p>
+</div>
+      <div class="services-breadcrumb_w3layouts">
+         <div class="inner_breadcrumb">
+            <ul class="short_w3ls" _w3ls>
+               <li><a href="index.html">Build Resume </a><span>|</span></li>
+               <li></li>
+            </ul>
+         </div>
+      </div>
+      <!--//w3_short-->
+      <!-- /inner_content -->
+      <div class="inner_content_info_agileits">
+         <div class="container">
+            {% if message %}
+            <div class="alerts">
+               {{message}}
+            </div>
+            {% endif %}
+            <div class="inner_sec_grids_info_w3ls">
+               <div class="signin-form">
+                  <div class="login-form-rec">
+                     <form action="{% url 'buildResume' %}" method="post">
+                        {% csrf_token %}
+                        <label style="float:left; padding: 0.5em 0em 0.5em 0em;">Personal Details</label>
+                        <input type="text" name="username" placeholder="Username" required=""
+                           value="{{u.user_id.username}}">
+                        <input type="email" name="email" placeholder="Email" required="" value="{{u.user_id.email}}">
+                        <p style="float:left; padding: 0.5em 0em 0.5em 0em">Gender
+                              <input type="radio" id="html" name="fav_language" value="Male">
+                              <label for="html">Male</label><span>
+                              <input type="radio" id="css" name="fav_language" value="Female">
+                              <label for="css">Female</label></span>
+                        </p>
+                        <br>
+                        <input type="text" name="phonenumber" placeholder="Phone Number" required="">
+                        <label style="float:left; padding: 0.5em 0em 0.5em 0em;">Social Links</label>
+                        <input type="text" name="github" placeholder="Enter Github Profile" required="">
+                        <input type="text" name="linkdin" placeholder="Enter Linkdin Profile" required="">
+                        <label style="float:left; padding: 0.5em 0em 0.5em 0em;">Your Skills</label>
+                        <textarea name="skills" placeholder="Skills" required=""></textarea>
+                        <label style="float:left; padding: 0.5em 0em 0.5em 0em;">Describe Yourself</label>
+                        <textarea name="aboutyou" placeholder="About You" required=""></textarea>
+                        <label style="float:left; padding: 0.5em 0em 0.5em 0em;">Education</label>
+                        <input name="10" type="text" placeholder="10th SchoolName" required="">
+                        <div>
+                           <input name="10passing" type="text" placeholder="Year of passing" required="" style="width: 50%;float:left;">
+                           <input name="10percentage" type="text" placeholder="Percentage" required="" style="width: 50%;float:right;">
+                        </div>
+                        <br>
+                        <br>
+                        <input name="12" type="text" placeholder="12th SchoolName" required="">
+                        <div>
+                           <input name="12passing" type="text" placeholder="Year of passing" required="" style="width: 50%;float:left;">
+                           <input name="12percent" type="text" placeholder="Percentage" required="" style="width: 50%;float:right;">
+                        </div>
+                        <br>
+                        <br>
+                        <input name="graduation" type="text" placeholder="Graduation" required="">
+                        <div>
+                           <input name="graduationpass" type="text" placeholder="Year of passing" required="" style="width: 50%;float:left;">
+                           <input name="graduationpercent" type="text" placeholder="Percentage" required="" style="width: 50%;float:right;">
+                        </div>
+                        <label style="float:left; padding: 0.5em 0em 0.5em 0em;">Experience</label>
+                        <textarea name="experience" placeholder="Experience" required=""></textarea>
+                        <label style="float:left; padding: 0.5em 0em 0.5em 0em;">Projects Done</label>
+                        <textarea name="projects" placeholder="Projects" required=""></textarea>
+                        <br>
+                        <div class="tp">
+                           <input type="submit" value="Submit">
+                        </div>
+                     </form>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+{% endblock %}

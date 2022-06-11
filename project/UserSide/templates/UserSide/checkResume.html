@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" moznomarginboxes>
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge;chrome=1"/>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+    <meta name="google" content="notranslate"/>
+    <!-- Metadata (autofilled by "Save to HTML") -->
+    <meta name="author" content="{{j.name}}"/>
+    <meta name="subject" content=""/>
+    <meta name="keywords" content=""/>
+    <meta name="date" content=""/>
+    <meta name="generator" content=""/>
+    <!-- Google Fonts, Normalize, and Font Awesome -->
+    <link rel="stylesheet" type="text/css"
+          href="https://fonts.googleapis.com/css?family=Cardo|Montserrat:300,400,500&amp;subset=latin-ext"
+          crossorigin="anonymous"/>
+    <link rel="stylesheet" type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css"
+          integrity="sha256-oSrCnRYXvHG31SBifqP2PM1uje7SJUyX0nTwO2RJV54=" crossorigin="anonymous"/>
+    <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
+          integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous"/>
+    <!-- Custom Styles -->
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/paper.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/styles.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/typography.css' %}"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'assets/screen.css' %}"/>
+    <link rel="stylesheet" type="text/css" media="print" href="{% static 'assets/print.css' %}"/>
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <title>HTML Resume Template</title>
+</head>
+<body class="letter">
+<section id="save">
+    <section class="sheet">
+        <aside>
+            <section class="contact">
+                <h6>Contact</h6>
+                <ul>
+                    <li>
+                        <p><i class="fa fa-map-marker-alt" title="Location"></i> {{j.address}}</p>
+                    </li>
+                    <li>
+                        <p><i class="fa fa-phone" title="Cell phone"></i> <a href="">{{j.phonenumber}}</a>
+                        </p>
+                    </li>
+                    <li>
+                        <p><i class="fa fa-envelope" title="Email"></i> <a href="">{{j.email}}</a>
+                        </p>
+                    </li>
+                    <li>
+                        <p><i class="fa fa-globe-americas" title="Website"></i> <a href="">{{j.linkdin}}</a>
+                        </p>
+                    </li>
+                    <li>
+                        <p><i class="fab fa-github" title="GitHub"></i> <a href="">{{j.github}}</a>
+                        </p>
+                    </li>
+                </ul>
+            </section>
+            <section class="skills">
+                <h6>Skills</h6>
+                <ul>
+                    <li><span>{{j.skills}}</span></li>
+                    <li><span></span></li>
+                    <li><span></span></li>
+                    <li><span></span></li>
+                    <li><span></span></li>
+                </ul>
+            </section>
+            <section class="references">
+                <h6></h6>
+                <address>
+                    <br/>
+                    <br/>
+                </address>
+                <address>
+                    <br/>
+                    <br/>
+                </address>
+                <p><br/><a href=""></a></p>
+            </section>
+        </aside>
+        <section>
+            <header class="name" aria-label="{{j.name}}">
+                <a href="">
+                    <svg width="257px" height="35px" viewBox="0 0 257 35" version="1.1"
+                         xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"
+                           font-family="Montserrat-Regular, Montserrat" font-size="48" font-weight="normal">
+                            <g id="Letter" transform="translate(-54.000000, -140.000000)" fill="#484848">
+                                <text>
+                                    <tspan x="54.728" y="174">{{j.name}}</tspan>
+                                </text>
+                            </g>
+                        </g>
+                    </svg>
+                </a>
+                <hr/>
+            </header>
+            <section>
+                <section class="summary">
+                    <h6>Summary</h6>
+                    <p>{{j.aboutyou}}</p>
+                </section>
+                <section class="experience">
+                    <h6>Experience</h6>
+                    <ol>
+                        <li>
+                            <header>
+                                <p class="sanserif">{{j.expereience}}</p>
+                                <time></time>
+                            </header>
+                            <span></span>
+                            <ul>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                            </ul>
+                        </li>
+                    </ol>
+                </section>
+                <section class="experience">
+                    <h6>Projects</h6>
+                    <ol>
+                        <li>
+                            <header>
+                                <p class="sanserif">{{j.projects}}</p>
+                                <time></time>
+                            </header>
+                            <span></span>
+                            <ul>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                            </ul>
+                        </li>
+                    </ol>
+                </section>
+                <section class="education">
+                    <h6>Education</h6>
+                    <ol>
+                        <li>
+                            <div>
+                                <p class="sanserif">{{j.tenthschool}}</p>
+                                <time>{{j.tenthpassing}}</time>
+                            </div>
+                            <div>
+                                <span>{{j.tenthpercent}}</span>
+                                <span></span>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <p class="sanserif">{{j.twelveschool}}</p>
+                                <time>{{j.twelvepassing}}</time>
+                            </div>
+                            <div>
+                                <span>{{j.twelvepercent}}</span>
+                                <span></span>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <p class="sanserif">{{j.graduateschool}}</p>
+                                <time>{{j.graduatepassing}}</time>
+                            </div>
+                            <div>
+                                <span>{{j.graduatepercent}}</span>
+                                <span></span>
+                            </div>
+                        </li>
+                    </ol>
+                </section>
+            </section>
+        </section>
+    </section>
+</section>
+<!-- Script to make elements authorable and save changes to localStorage -->
+<script type="text/javascript" src="{% static 'assets/index.js' %}"></script>
+</body>
+<!-- Developed by Tom Barrasso. https://barrasso.me -->
+</html>

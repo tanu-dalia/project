@@ -1,0 +1,55 @@
+{% extends 'UserSide/masterPage.html' %}
+{% block body %}
+<div class="inner_page_agile">
+    <h3>Resumes</h3> 123456
+    <p>Your Build Resumes</p>
+</div>
+{% if jb %}
+<div class="container p-4 text-center">
+    <br>
+    {% if message %}
+    <div class="alert-danger">{{message}}</div>
+    {% endif %}
+    <br>
+    <table class="table mt-3">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Action</th>
+        </tr>
+        {% for i in jb %}
+        <tr>
+            <td>{{i.id}}</td>
+            <td>{{i.name}}</td>
+            <td>{{i.email}}</td>
+            <td>
+                <a href="{% url 'checkResume' i.id %}"><button type="submit">Generate Resume</button></a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% else %}
+<div class="container p-4 text-center">
+    <br>
+    <table class="table mt-3">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Action</th>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>No Resume Available</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+</div>
+{% endif %}
+{% endblock %}
